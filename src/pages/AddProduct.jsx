@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 
-const AddProduct = () => {
+const AddProduct = ({ onAdd }) => {
 const [form, setForm] = useState({
     title: "",
     price: "",
@@ -16,11 +16,13 @@ const navigate = useNavigate();
 
 const handleChange = (e) => {
   const { name, value } = e.target;
+  console.log("Changing:", name, value);
 setForm({ ...form, [name]: value});
 };
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  console.log("Submitting form data:", form); 
   onAdd({ ...form, id: Date.now() });
     navigate("/");
 };
