@@ -5,4 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/Product-Store/',
+  resolve: {
+    alias: {
+      react: 'react', // Aide Vite à trouver React
+    },
+  },
 })
